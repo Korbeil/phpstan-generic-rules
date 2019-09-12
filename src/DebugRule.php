@@ -7,6 +7,7 @@ namespace PHPStan\GenericRules;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use Symfony\Component\VarDumper\VarDumper;
 
 class DebugRule implements Rule
 {
@@ -22,7 +23,7 @@ class DebugRule implements Rule
     {
         $functions = ['var_dump', 'exit', 'die'];
 
-        if (\class_exists('\\Symfony\\Component\\VarDumper\\VarDumper')) {
+        if (\class_exists(VarDumper::class)) {
             $functions[] = 'dump';
             $functions[] = 'dd';
         }
