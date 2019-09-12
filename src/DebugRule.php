@@ -11,24 +11,23 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class DebugRule implements Rule
 {
+    private static $functionsToAvoid = [
+        'die' => true,
+        'exit' => true,
+        'var_dump' => true,
+    ];
+
+    public function __construct()
+    {
+        if (\class_exists(VarDumper::class)) {
+            self::$functionsToAvoid['dump'] = true;
+            self::$functionsToAvoid['dd'] = true;
+        }
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\FuncCall::class;
-    }
-
-    /**
-     * @return array|string[]
-     */
-    private function getFunctionsToAvoid(): array
-    {
-        $functions = ['var_dump', 'exit', 'die'];
-
-        if (\class_exists(VarDumper::class)) {
-            $functions[] = 'dump';
-            $functions[] = 'dd';
-        }
-
-        return $functions;
     }
 
     /**
@@ -37,9 +36,8 @@ class DebugRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         $errors = [];
-        if ($node->name instanceof Node\Name &&
-            true === \in_array($node->name->getLast(), $functionsToAvoid = $this->getFunctionsToAvoid())) {
-            $errors[] = sprintf('You should remove debug method calls. (%s)', implode(', ', $functionsToAvoid));
+        if ($node->name instanceof Node\Name && array_key_exists($node->name->getLast(), self::$functionsToAvoid)) {
+            $errors[] = sprintf('You should not use debug function (%s)', $node->name->getLast());
         }
 
         return $errors;
