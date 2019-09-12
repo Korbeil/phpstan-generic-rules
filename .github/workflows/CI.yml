@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: composer update
+        uses: nick-zh/composer-php@master
+        with:
+          action: 'update'
+      - name: php-cs-fixer check
+        uses: nick-zh/composer-php@master
+        with:
+          action: 'cs-check'
+      - name: phpstan check
+        uses: nick-zh/composer-php@master
+        with:
+          action: 'phpstan'
