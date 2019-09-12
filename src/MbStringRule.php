@@ -10,19 +10,19 @@ use PHPStan\Rules\Rule;
 
 class MbStringRule implements Rule
 {
-    private const STRING_FUNCTIONS_MAPPING = [
-        'stripos',
-        'stristr',
-        'strlen',
-        'strpos',
-        'strrchr',
-        'strripos',
-        'strrpos',
-        'strstr',
-        'strtolower',
-        'strtoupper',
-        'substr_count',
-        'substr',
+    private const FUNCTIONS_TO_AVOID = [
+        'stripos' => true,
+        'stristr' => true,
+        'strlen' => true,
+        'strpos' => true,
+        'strrchr' => true,
+        'strripos' => true,
+        'strrpos' => true,
+        'strstr' => true,
+        'strtolower' => true,
+        'strtoupper' => true,
+        'substr_count' => true,
+        'substr' => true,
     ];
 
     public function getNodeType(): string
@@ -36,12 +36,8 @@ class MbStringRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         $errors = [];
-        if ($node->name instanceof Node\Name) {
-            foreach (self::STRING_FUNCTIONS_MAPPING as $stringFunction) {
-                if ($stringFunction === $node->name->getLast()) {
-                    $errors[] = sprintf('You should use mb_%s function instead of %s.', $stringFunction, $stringFunction);
-                }
-            }
+        if ($node->name instanceof Node\Name && \array_key_exists($node->name->getLast(), self::FUNCTIONS_TO_AVOID)) {
+            $errors[] = sprintf('You should use mb_%s function instead of %s.', $node->name->getLast(), $node->name->getLast());
         }
 
         return $errors;
