@@ -3,3 +3,7 @@ services:
         class: PHPStan\GenericRules\DebugRule
         tags:
             - phpstan.rules.rule
+    -
+        class: PHPStan\GenericRules\MbStringRule
+        tags:
+            - phpstan.rules.rule
