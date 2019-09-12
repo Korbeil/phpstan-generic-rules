@@ -1,5 +1,5 @@
 {
-	"name": "Korbeil/phpstan-generic-rules",
+	"name": "korbeil/phpstan-generic-rules",
 	"description": "Generic rules extensions for PHPStan",
 	"type": "phpstan-extension",
 	"license": ["MIT"],

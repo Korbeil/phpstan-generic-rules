@@ -9,7 +9,7 @@ jobs:
       - name: composer install
         uses: nick-zh/composer-php@master
         with:
-          action: 'install'
+          action: 'update'
       - name: php-cs-fixer check
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
@@ -23,7 +23,7 @@ jobs:
       - name: composer install
         uses: nick-zh/composer-php@master
         with:
-          action: 'install'
+          action: 'update'
       - name: phpstan check
         uses: docker://oskarstark/phpstan-ga
         with:

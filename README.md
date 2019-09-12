@@ -14,7 +14,7 @@ We assume that [PHPStan](https://github.com/phpstan/phpstan) is already installe
 To use this extension, require it in [Composer](https://getcomposer.org/):
 
 ```bash
-composer require --dev Korbeil/phpstan-generic-rules
+composer require --dev korbeil/phpstan-generic-rules
 ```
 
 If you also install [phpstan/extension-installer](https://github.com/phpstan/extension-installer) then you're all set!
@@ -26,6 +26,6 @@ If you don't want to use `phpstan/extension-installer`, include phpstan-strict-r
 
 ```yml
 includes:
-    - vendor/Korbeil/phpstan-generic-rules/extension.neon
+    - vendor/korbeil/phpstan-generic-rules/extension.neon
 ```
 </details>
