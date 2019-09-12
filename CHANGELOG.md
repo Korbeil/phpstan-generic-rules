@@ -12,4 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - DebugRule (in Symfony context) for `dump` and `dd` function calls
 
 [Unreleased]: https://github.com/Korbeil/phpstan-generic-rules/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Korbeil/phpstan-generic-rules/compare/v0.3.0...v1.0.0
+[0.1.0]: https://github.com/Korbeil/phpstan-generic-rules/releases/tag/v0.1.0
