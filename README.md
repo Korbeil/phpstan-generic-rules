@@ -7,6 +7,10 @@
 - You should not have `var_dump`, `exit` or `die` function calls
 - If you have `symfony/var-dumper`, you should not have `dump` or `die` function calls
 
+### MbString rules
+
+- You should use multibyte string function when it exists
+
 ## Installation
 
 We assume that [PHPStan](https://github.com/phpstan/phpstan) is already installed in your project.

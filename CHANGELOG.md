@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.0] - 2019-09-12
 ### Added
 - [GH#3](https://github.com/Korbeil/phpstan-generic-rules/pull/3) MbStringRule for string function that have a `mb_*` equivalent
 
@@ -16,5 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - DebugRule for `var_dump`, `exit` and `die` function calls
 - DebugRule (in Symfony context) for `dump` and `dd` function calls
 
-[Unreleased]: https://github.com/Korbeil/phpstan-generic-rules/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Korbeil/phpstan-generic-rules/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Korbeil/phpstan-generic-rules/releases/tag/v0.1.0
