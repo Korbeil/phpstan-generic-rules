@@ -1,5 +1,5 @@
 services:
-  -
-    class: PHPStan\GenericRules\DebugRule
-    tags:
-      - phpstan.rules.rule
+    -
+        class: PHPStan\GenericRules\DebugRule
+        tags:
+            - phpstan.rules.rule
