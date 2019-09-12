@@ -6,10 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- MbStringRule for string function that have a `mb_*` equivalent #3
+- [GH#3](https://github.com/Korbeil/phpstan-generic-rules/pull/3) MbStringRule for string function that have a `mb_*` equivalent
 
 ### Changed
-- DebugRule is faster #4
+- [GH#4](https://github.com/Korbeil/phpstan-generic-rules/pull/4) DebugRule is faster
 
 ## [0.1.0] - 2019-09-12
 ### Added
