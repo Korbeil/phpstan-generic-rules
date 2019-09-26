@@ -25,6 +25,19 @@ class MbStringRule implements Rule
         'substr' => true,
     ];
 
+    /**
+     * @var bool
+     */
+    private $enabled;
+
+    /**
+     * @param bool $enabled
+     */
+    public function __construct(bool $enabled = true)
+    {
+        $this->enabled = $enabled;
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\FuncCall::class;
@@ -35,6 +48,10 @@ class MbStringRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$this->enabled) {
+            return [];
+        }
+
         $errors = [];
         if ($node->name instanceof Node\Name && \array_key_exists($node->name->getLast(), self::FUNCTIONS_TO_AVOID)) {
             $errors[] = sprintf('You should use mb_%s function instead of %s.', $node->name->getLast(), $node->name->getLast());

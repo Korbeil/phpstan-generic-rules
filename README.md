@@ -33,3 +33,13 @@ includes:
     - vendor/korbeil/phpstan-generic-rules/extension.neon
 ```
 </details>
+
+## Advanced usage
+
+You can configure this library with parameters:
+
+```
+parameters:
+    generic_rules:
+        mb_string_rules: false  # To disable the mb_string rule
+```
