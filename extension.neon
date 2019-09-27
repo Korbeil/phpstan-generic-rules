@@ -1,3 +1,7 @@
+parameters:
+    generic_rules:
+        mb_string_rules: true
+
 services:
     -
         class: PHPStan\GenericRules\DebugRule
@@ -5,5 +9,7 @@ services:
             - phpstan.rules.rule
     -
         class: PHPStan\GenericRules\MbStringRule
+        arguments:
+            enabled: %generic_rules.mb_string_rules%
         tags:
             - phpstan.rules.rule
