@@ -17,8 +17,18 @@ class DebugRule implements Rule
         'var_dump' => true,
     ];
 
-    public function __construct()
+    /**
+     * @var bool
+     */
+    private $enabled;
+
+    /**
+     * @param bool $enabled
+     */
+    public function __construct(bool $enabled = true)
     {
+        $this->enabled = $enabled;
+
         if (\class_exists(VarDumper::class)) {
             self::$functionsToAvoid['dump'] = true;
             self::$functionsToAvoid['dd'] = true;
@@ -35,6 +45,10 @@ class DebugRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$this->enabled) {
+            return [];
+        }
+
         $errors = [];
         if ($node->name instanceof Node\Name && array_key_exists($node->name->getLast(), self::$functionsToAvoid)) {
             $errors[] = sprintf('You should not use debug function (%s)', $node->name->getLast());

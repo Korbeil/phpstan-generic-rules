@@ -41,5 +41,6 @@ You can configure this library with parameters:
 ```
 parameters:
     generic_rules:
+        debug_rule: false  # To disable the debug rule
         mb_string_rules: false  # To disable the mb_string rule
 ```
