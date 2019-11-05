@@ -30,9 +30,6 @@ class MbStringRule implements Rule
      */
     private $enabled;
 
-    /**
-     * @param bool $enabled
-     */
     public function __construct(bool $enabled = true)
     {
         $this->enabled = $enabled;
