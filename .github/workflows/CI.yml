@@ -27,4 +27,4 @@ jobs:
       - name: phpstan check
         uses: docker://oskarstark/phpstan-ga
         with:
-          args: analyse src/ --level=max
+          args: analyse src/ --level=max --configuration=phpstan.neon

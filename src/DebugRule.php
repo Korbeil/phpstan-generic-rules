@@ -11,6 +11,7 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class DebugRule implements Rule
 {
+    /** @var array<string, bool> */
     private static $functionsToAvoid = [
         'die' => true,
         'exit' => true,
@@ -39,6 +40,8 @@ class DebugRule implements Rule
 
     /**
      * @param Node\Expr\FuncCall $node
+     *
+     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {

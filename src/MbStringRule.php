@@ -10,6 +10,7 @@ use PHPStan\Rules\Rule;
 
 class MbStringRule implements Rule
 {
+    /** @var array<string, bool> */
     private const FUNCTIONS_TO_AVOID = [
         'stripos' => true,
         'stristr' => true,
@@ -42,6 +43,8 @@ class MbStringRule implements Rule
 
     /**
      * @param Node\Expr\FuncCall $node
+     *
+     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {
