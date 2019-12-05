@@ -3,6 +3,12 @@ parameters:
         debug_rule: true
         mb_string_rules: true
 
+parametersSchema:
+    generic_rules: structure([
+        debug_rule: bool()
+        mb_string_rules: bool()
+    ])
+
 services:
     -
         class: PHPStan\GenericRules\DebugRule
