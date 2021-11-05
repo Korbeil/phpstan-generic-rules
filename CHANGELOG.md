@@ -28,7 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - DebugRule for `var_dump`, `exit` and `die` function calls
 - DebugRule (in Symfony context) for `dump` and `dd` function calls
 
-[Unreleased]: https://github.com/Korbeil/phpstan-generic-rules/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/Korbeil/phpstan-generic-rules/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.1...v1.0.0
 [0.2.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Korbeil/phpstan-generic-rules/releases/tag/v0.1.0
