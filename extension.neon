@@ -11,13 +11,13 @@ parametersSchema:
 
 services:
     -
-        class: PHPStan\GenericRules\DebugRule
+        class: Korbeil\GenericRules\DebugRule
         arguments:
             enabled: %generic_rules.debug_rule%
         tags:
             - phpstan.rules.rule
     -
-        class: PHPStan\GenericRules\MbStringRule
+        class: Korbeil\GenericRules\MbStringRule
         arguments:
             enabled: %generic_rules.mb_string_rules%
         tags:

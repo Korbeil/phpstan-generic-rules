@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPStan\GenericRules;
+namespace Korbeil\GenericRules;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
