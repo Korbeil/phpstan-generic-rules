@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.0.0] - 2019-11-05
 ### Added
 - [GH#11](https://github.com/Korbeil/phpstan-generic-rules/pull/11) Add compatibility with PHPStan 1.0
 
