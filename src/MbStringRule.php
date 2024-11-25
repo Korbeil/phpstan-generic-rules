@@ -7,7 +7,11 @@ namespace Korbeil\GenericRules;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 
+/**
+ * @implements Rule<Node\Expr\FuncCall>
+ */
 class MbStringRule implements Rule
 {
     /** @var array<string, bool> */
@@ -43,8 +47,6 @@ class MbStringRule implements Rule
 
     /**
      * @param Node\Expr\FuncCall $node
-     *
-     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -54,7 +56,9 @@ class MbStringRule implements Rule
 
         $errors = [];
         if ($node->name instanceof Node\Name && \array_key_exists($node->name->getLast(), self::FUNCTIONS_TO_AVOID)) {
-            $errors[] = sprintf('You should use mb_%s function instead of %s.', $node->name->getLast(), $node->name->getLast());
+            $errors[] = RuleErrorBuilder::message(sprintf('You should use mb_%s function instead of %s.', $node->name->getLast(), $node->name->getLast()))
+                ->identifier('korbeil.mb_string')
+                ->build();
         }
 
         return $errors;

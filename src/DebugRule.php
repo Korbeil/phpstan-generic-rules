@@ -7,8 +7,12 @@ namespace Korbeil\GenericRules;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use Symfony\Component\VarDumper\VarDumper;
 
+/**
+ * @implements Rule<Node\Expr\FuncCall>
+ */
 class DebugRule implements Rule
 {
     /** @var array<string, bool> */
@@ -40,8 +44,6 @@ class DebugRule implements Rule
 
     /**
      * @param Node\Expr\FuncCall $node
-     *
-     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -51,7 +53,9 @@ class DebugRule implements Rule
 
         $errors = [];
         if ($node->name instanceof Node\Name && array_key_exists($node->name->getLast(), self::$functionsToAvoid)) {
-            $errors[] = sprintf('You should not use debug function (%s)', $node->name->getLast());
+            $errors[] = RuleErrorBuilder::message(sprintf('You should not use debug function (%s)', $node->name->getLast()))
+                ->identifier('korbeil.debug')
+                ->build();
         }
 
         return $errors;
