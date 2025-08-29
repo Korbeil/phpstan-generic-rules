@@ -57,7 +57,7 @@ class MbStringRule implements Rule
         $errors = [];
         if ($node->name instanceof Node\Name && \array_key_exists($node->name->getLast(), self::FUNCTIONS_TO_AVOID)) {
             $errors[] = RuleErrorBuilder::message(sprintf('You should use mb_%s function instead of %s.', $node->name->getLast(), $node->name->getLast()))
-                ->identifier('korbeil.mb.string')
+                ->identifier('korbeil.mbstring')
                 ->build();
         }
 
