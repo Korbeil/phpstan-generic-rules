@@ -41,6 +41,7 @@ You can configure this library with parameters:
 ```
 parameters:
     generic_rules:
+        never_empty_rule: true # To enable the never empty rule
         debug_rule: false  # To disable the debug rule
         mb_string_rules: false  # To disable the mb_string rule
 ```
