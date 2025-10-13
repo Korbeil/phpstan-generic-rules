@@ -1,15 +1,23 @@
 parameters:
     generic_rules:
+        never_empty_rule: false
         debug_rule: true
         mb_string_rules: true
 
 parametersSchema:
     generic_rules: structure([
+        never_empty_rule: bool()
         debug_rule: bool()
         mb_string_rules: bool()
     ])
 
 services:
+    -
+        class: Korbeil\GenericRules\NeverEmptyRule
+        arguments:
+            enabled: %generic_rules.never_empty_rule%
+        tags:
+            - phpstan.rules.rule
     -
         class: Korbeil\GenericRules\DebugRule
         arguments:
